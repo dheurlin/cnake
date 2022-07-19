@@ -17,7 +17,7 @@ let held_key = -1;
 const env = {
   makeWindow: (width, height) => {
     canvas = document.createElement('canvas');
-    document.querySelector('#container').append(canvas);
+    document.querySelector('#container').prepend(canvas);
 
     canvas.width = width;
     canvas.height = height;

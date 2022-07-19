@@ -161,11 +161,6 @@ void init() {
   drawSnakeCell(player.pos.x, player.pos.y);
   spawnApple();
   drawApple(apple.x, apple.y);
-
-  for (int i = 0; i < 10; i++) {
-    extendTail();
-  }
-
   drawTail();
 }
 

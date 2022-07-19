@@ -67,10 +67,12 @@ WebAssembly.instantiateStreaming(fetch('main.wasm'), { env }).then(async ({ inst
   }
 
   window.addEventListener('keydown', (e) => {
+    e.preventDefault();
     held_key = e.keyCode;
   });
 
-  window.addEventListener('keyup', () => {
+  window.addEventListener('keyup', (e) => {
+    e.preventDefault();
     held_key = -1;
   });
 

@@ -1,0 +1,12 @@
+{
+  "name": "wasm-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "python3 -m http.server",
+    "build": "clang --target=wasm32 --no-standard-libraries -Wl,--export-all -Wl,--no-entry -Wl,-allow-undefined-file wasm.syms -o main.wasm src/main.c"
+  },
+  "author": "",
+  "license": "ISC"
+}

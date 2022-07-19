@@ -1,0 +1,7 @@
+print
+makeWindow
+clearWindow
+drawRect
+getHeldKey
+rand
+roundFloat

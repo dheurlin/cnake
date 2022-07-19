@@ -67,7 +67,10 @@ WebAssembly.instantiateStreaming(fetch('main.wasm'), { env }).then(async ({ inst
   }
 
   window.addEventListener('keydown', (e) => {
-    e.preventDefault();
+    // Prevent scrolling using arrow keys
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+    }
     held_key = e.keyCode;
   });
 

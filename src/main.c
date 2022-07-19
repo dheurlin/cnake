@@ -1,12 +1,5 @@
-typedef signed int i32;
-
-void print(i32);
-void makeWindow(i32 width, i32 height);
-void clearWindow();
-void drawRect(i32 x, i32 y, i32 width, i32 height, i32 r, i32 g, i32 b);
-i32 getHeldKey();
-float rand();
-i32 roundFloat(float);
+#include "js.h"
+#include "fontrender.h"
 
 // Constants ------------------------------------------------------------------
 
@@ -58,6 +51,7 @@ typedef struct Tail {
 
 bool paused = false;
 bool dead = false;
+char score = 0;
 short framesSincePauseChanged = 0;
 short framesSinceUpdated = 0;
 
@@ -252,6 +246,7 @@ void update() {
   if (newX == apple.x && newY == apple.y) {
     extendTail();
     spawnApple();
+    score++;
   }
 
   setIsDead();
@@ -262,6 +257,11 @@ void update() {
   drawApple(apple.x, apple.y);
   drawSnakeCell(player.pos.x, player.pos.y);
   drawTail();
+
+  // Draw HUD
+  i32 nextChar = renderString("Score: ", 10, 10, 2);
+  renderNumber(score, nextChar, 10, 2);
+
   framesSinceUpdated = 0;
 
 }

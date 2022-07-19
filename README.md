@@ -1,7 +1,7 @@
 Snake game written in C, compiled via WebAssembly.
 
 <div align="center">
-    <img src="/doc/screenshot.png" width="400px"</img>
+    <img src="/doc/screenshot.png" width="800px"</img>
 </div>
 
 

@@ -1,5 +1,7 @@
 Snake game written in C, compiled via WebAssembly.
 
+Play it now at <a  target="_blank" href="https://games.heurlin.xyz/snake/">games.heurlin.xyz/snake/</a>
+
 <div align="center">
     <img src="/doc/screenshot.png" width="800px"</img>
 </div>

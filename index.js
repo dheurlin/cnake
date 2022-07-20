@@ -10,9 +10,9 @@ let svg;
 let canvas;
 
 /**
- * @type {number}
+ * @type {number[]}
  * */
-let held_key = -1;
+let held_keys = [];
 
 const env = {
   makeWindow: (width, height) => {
@@ -36,7 +36,7 @@ const env = {
     cxt.fillStyle = `rgb(${r}, ${g}, ${b})`;
     cxt.fillRect(x, y, width, height);
   },
-  getHeldKey: () => held_key,
+  getHeldKey: () => held_keys[0] ?? -1,
   print: console.log,
   rand: Math.random,
   roundFloat: Math.round,
@@ -71,12 +71,12 @@ WebAssembly.instantiateStreaming(fetch('main.wasm'), { env }).then(async ({ inst
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
       e.preventDefault();
     }
-    held_key = e.keyCode;
+    held_keys = [e.keyCode, ...held_keys];
   });
 
   window.addEventListener('keyup', (e) => {
     e.preventDefault();
-    held_key = -1;
+    held_keys = held_keys.filter((keyCode) => e.keyCode !== keyCode);
   });
 
   startAnimating(60);

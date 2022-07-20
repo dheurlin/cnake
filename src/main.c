@@ -155,7 +155,6 @@ void init() {
   drawSnakeCell(player.pos.x, player.pos.y);
   spawnApple();
   drawApple(apple.x, apple.y);
-  drawTail();
 }
 
 void update() {
@@ -240,7 +239,6 @@ void update() {
   player.pos.x = newX;
   player.pos.y = newY;
 
-  updateTail(oldX, oldY);
 
   // Touching apple?
   if (newX == apple.x && newY == apple.y) {
@@ -249,6 +247,7 @@ void update() {
     score++;
   }
 
+  updateTail(oldX, oldY);
   setIsDead();
 
   // Render ----------------------------------------------------
